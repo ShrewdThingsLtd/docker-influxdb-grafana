@@ -7,6 +7,7 @@ ENV LANG C.UTF-8
 # Default versions
 ENV INFLUXDB_VERSION 1.7.1
 ENV GRAFANA_VERSION  5.3.4
+ENV NODE_VERSION     10
 
 # Database Defaults
 ENV INFLUXDB_GRAFANA_DB datasource
@@ -36,7 +37,7 @@ RUN apt-get -y update && \
   openssh-server \
   supervisor \
   wget && \
- curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+ curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - && \
  apt-get install -y nodejs
 
 WORKDIR /root
